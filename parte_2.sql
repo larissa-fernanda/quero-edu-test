@@ -1,10 +1,10 @@
 -- pergunta 1
 SELECT
     cursos.name,
-    ROUND(SUM(compras.mensalidade), 2) as somatoria
+    ROUND(COALESCE(SUM(compras.mensalidade), 0), 2) as somatoria
 FROM
     cursos
-INNER JOIN
+LEFT JOIN
     compras ON
     cursos.id = compras.course_id
 GROUP BY
