@@ -26,3 +26,10 @@ def criar_dataframe(dados):
     dataframe['fabricante_nome'] = dataframe['vacina_fabricante_nome'].apply(normalizar_nomes)
     
     return dataframe
+
+def obter_metricas(dataframe):
+    agrupado_por_fabricante = dataframe.groupby(by=['fabricante_nome']).size().sort_values(ascending=False).to_dict()
+    agrupado_por_fabricante_municipio = dataframe.groupby(by=['fabricante_nome', 'paciente_endereco_nmMunicipio', 'paciente_endereco_uf']).size().sort_values(ascending=False).to_dict()
+    resultado_total = dataframe.shape[0]
+
+    return resultado_total, agrupado_por_fabricante, agrupado_por_fabricante_municipio
