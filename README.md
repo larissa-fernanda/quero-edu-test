@@ -1,4 +1,9 @@
 # Teste técnico - Quero Educação
+
+Para a resolução do parte 1, foi utilizado `Python 3.8` e a biblioteca `Pandas`.
+
+O arquivo fornecido `raw_response.json` não está no formato `json` e sim em um dict Python. Foi preciso utilizar a função `eval()` para interpretar o arquivo.
+
 ## Instrução para instalação
 
 `pip install -r requirements`
